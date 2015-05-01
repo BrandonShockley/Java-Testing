@@ -1,0 +1,55 @@
+package com.bon.main;
+
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+public class Main extends JFrame {
+
+	private static final long serialVersionUID = -5311105052652648244L;
+	
+	public static void main(String[] args) {
+		JFrame frame = new JFrame("Hi there!");
+		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		frame.setSize(300, 300);
+		frame.setVisible(true);
+		
+		JPanel c = new JPanel();
+		c.setLayout(new GridBagLayout());
+		GridBagConstraints con = new GridBagConstraints();
+		
+		JButton button = new JButton("Clik me nao");
+		button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}});
+		con.gridx=0;
+		con.gridy=0;
+		con.weightx=.5;
+		con.weighty=.5;
+		con.anchor=GridBagConstraints.NORTH;
+		con.fill=GridBagConstraints.HORIZONTAL;
+		c.add(button,con);
+		
+		JButton button2 = new JButton("Hi");
+		con.gridx=1;
+		c.add(button2,con);
+		
+		con.gridx=0;
+		con.gridy=1;
+		JTextArea text = new JTextArea();
+		
+		c.add(text,con);
+		
+		frame.add(c);
+	}
+
+}
