@@ -1,5 +1,6 @@
 package com.bon.main;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -25,44 +26,36 @@ public class Main extends JFrame {
 		
 		JFrame frame = new JFrame("Hi there!");
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		frame.setSize(300, 300);
 		frame.setVisible(true);
 		
-		JPanel c = new JPanel();
-		c.setPreferredSize(new Dimension(500,500));
-		c.setLayout(new GridBagLayout());
-		GridBagConstraints con = new GridBagConstraints();
+		JPanel main = new JPanel(new GridBagLayout());
+		JPanel bar = new JPanel();
+		bar.setLayout(new GridBagLayout());
+		GridBagConstraints barc = new GridBagConstraints();
+		barc.weightx = 1;barc.weighty = 1;
 		
-		con.weightx=.5;
-		con.weighty=.5;
-		con.anchor=GridBagConstraints.NORTH;
-		con.fill=GridBagConstraints.HORIZONTAL;
+		JButton file = new JButton("File");
+		barc.gridx=0;barc.gridy=0;
+		bar.add(file, barc);
 		
-		JButton button2 = new JButton("Hi");
-		con.gridx=1;
-		con.gridy=1;
-		c.add(button2,con);
+		JButton edit = new JButton("Edit");
+		barc.gridx=1;
+		bar.add(edit, barc);
 		
-		con.gridx=0;
-		con.gridy=2;
-		JTextArea text = new JTextArea(10,10);
-		text.setEditable(false);
+		JPanel text = new JPanel();
+		text.setLayout(new GridBagLayout());
 		
-		JScrollPane scroller = new JScrollPane(text);
-		//scroller.setPreferredSize(new Dimension(20,20));
-		c.add(scroller,con);
+		JTextArea area = new JTextArea();
+		area.setPreferredSize(new Dimension(300,300));
+		area.setText("I'm a JTextArea");
+		barc.gridx=0;barc.gridy=1;
+		text.add(area, barc);
 		
-		JButton button = new JButton("Clik me nao");
-		button.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				text.setText(text.getText()+"\nHi!");
-			}});
-		con.gridx=0;
-		con.gridy=0;
-		c.add(button);
-		
-		frame.add(c);
+		barc.gridx=0;barc.gridy=0;
+		main.add(bar,barc);
+		barc.gridx=0;barc.gridy=1;
+		main.add(text,barc);
+		frame.add(main);
 		frame.pack();
 	}
 

@@ -1,0 +1,82 @@
+package com.bon.main;
+
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+public class Main extends JFrame {
+
+	private static final long serialVersionUID = -5311105052652648244L;
+	
+	public static void main(String[] args) {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException | InstantiationException
+				| IllegalAccessException | UnsupportedLookAndFeelException e) {
+			e.printStackTrace();
+		}
+		
+		JFrame frame = new JFrame("Hi there!");
+		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		
+		JPanel bar = new JPanel();
+		bar.setLayout(new GridBagLayout());
+		GridBagConstraints barc = new GridBagConstraints();
+		barc.weightx = 1;
+		barc.weighty = 1;
+		
+		JButton file = new JButton("File");
+		barc.gridx=0;
+		barc.gridy=0;
+		bar.add(file, barc);
+		/*
+		JPanel c = new JPanel();
+		c.setPreferredSize(new Dimension(500,500));
+		c.setLayout(new GridBagLayout());
+		GridBagConstraints con = new GridBagConstraints();
+		
+		con.weightx=.5;
+		con.weighty=.5;
+		con.anchor=GridBagConstraints.NORTH;
+		con.fill=GridBagConstraints.HORIZONTAL;
+		
+		JButton button2 = new JButton("Hi");
+		con.gridx=1;
+		con.gridy=1;
+		c.add(button2,con);
+		
+		con.gridx=0;
+		con.gridy=2;
+		JTextArea text = new JTextArea(10,10);
+		text.setEditable(false);
+		
+		JScrollPane scroller = new JScrollPane(text);
+		c.add(scroller,con);
+		
+		JButton button = new JButton("Clik me nao");
+		button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				text.setText(text.getText()+"Hi!\n");
+			}});
+		con.gridx=0;
+		con.gridy=0;
+		c.add(button);
+		
+		c.setBackground(new Color(50,150,50));
+		*/
+		//frame.add(c);
+		frame.add(bar);
+		frame.pack();
+	}
+
+}
