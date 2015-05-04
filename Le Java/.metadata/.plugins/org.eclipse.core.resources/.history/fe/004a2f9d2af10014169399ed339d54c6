@@ -1,0 +1,21 @@
+package Main;
+
+import java.util.concurrent.TimeUnit;
+
+public class Incrementing extends Thread {
+
+	public void run(int i) {
+		while(true)
+		{
+			Main.money++;
+			Main.sum.setText(Integer.toString(Main.money));
+			try {
+				TimeUnit.SECONDS.sleep(1);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+}

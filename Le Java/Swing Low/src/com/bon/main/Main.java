@@ -38,9 +38,17 @@ public class Main extends JFrame {
 		barc.gridx=0;barc.gridy=0;
 		bar.add(file, barc);
 		
-		JButton edit = new JButton("Edit");
+		JButton no = new JButton("Hi");
+		
+		JButton add = new JButton("Add");
 		barc.gridx=1;
-		bar.add(edit, barc);
+		add.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				main.add(new JButton("Hi"));
+				frame.pack();
+			}});
+		bar.add(add, barc);
 		
 		JPanel text = new JPanel();
 		text.setLayout(new GridBagLayout());

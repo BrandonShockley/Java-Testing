@@ -1,0 +1,33 @@
+package Main;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class Main implements Runnable {
+	
+	Thread t;
+	
+	private void game()
+	{
+		JFrame frame = new JFrame("Button Tycoon");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		
+		JPanel buttons = new JPanel();
+		buttons.setPreferredSize(new Dimension(300,400));
+		
+		frame.add(buttons);
+		frame.pack();
+	}
+
+	@Override
+	public void run() {
+		game();
+	}
+	
+	public static void main(String args[])
+	{
+		(new Thread(new Main())).start();
+	}
+	
+}
