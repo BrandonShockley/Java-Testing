@@ -1,0 +1,17 @@
+public class Animal {
+	
+	public int height;
+	public int color;
+	private int type;
+	
+	public Animal(int height, int color, int type)
+	{
+		this.height = height;
+		this.color = color;
+		this.type = type;
+	}
+	public Animal(int type)
+	{
+		this.type = type;
+	}
+}

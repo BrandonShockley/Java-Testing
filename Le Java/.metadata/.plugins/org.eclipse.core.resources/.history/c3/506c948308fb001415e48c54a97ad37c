@@ -1,0 +1,134 @@
+package com.bon.main;
+
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.Timer;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
+public class Main extends JFrame {
+
+	private static final long serialVersionUID = -5311105052652648244L;
+	
+	private static char kPres;
+	private static int kPresNum;
+	private static int x = 100;
+	private static int y = 100;
+	private static int dir = 0;
+	private static int length = 10;
+	private static Point[] trail = new Point[100];
+	private static int l = 0;
+	
+	public static void main(String[] args) {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException | InstantiationException
+				| IllegalAccessException | UnsupportedLookAndFeelException e) {
+			e.printStackTrace();
+		}
+		
+
+		
+		JFrame frame = new JFrame("Hi there!");
+		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		frame.setSize(500, 500);
+		
+		GridBagLayout layout = new GridBagLayout();
+		GridBagConstraints c = new GridBagConstraints();
+		
+		JPanel main = new JPanel(layout);
+		
+		JLabel xl = new JLabel();
+		JLabel yl = new JLabel();
+		JLabel kp = new JLabel();
+		main.add(xl);
+		main.add(yl);
+		main.add(kp);
+		frame.add(main);
+		
+		Timer myTimer = new Timer(25, new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				trail.length = length;
+				switch (dir)
+				{
+				case 0:
+					trail[0].y=y-=10;
+					trail[0].x=x;
+					break;
+				case 1:
+					trail[0].y;
+					trail[0].x=x-=10;
+					break;
+				case 2:
+					trail[0].y=y+=10;
+					trail[0].x=x;
+					break;
+				case 3:
+					trail[0].y=y;
+					trail[0].x=x+=10;
+					break;
+				}
+				frame.getGraphics().fillRect(x, y, 10, 10);
+			}
+		});
+		frame.addKeyListener(new KeyListener(){
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				switch (e.getKeyChar()){
+				case 'w':
+					dir=0;
+					break;
+				case 's':
+					dir=2;
+					break;
+				case 'd':
+					dir=3;
+					break;
+				case 'a':
+					dir=1;
+					break;
+				}
+			}
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}});
+		
+		
+		myTimer.start();
+		
+		
+
+		/*BufferedImage myPicture;
+		try {
+			myPicture = ImageIO.read(new File("C:/Users/Brandon/Desktop/Lua Love/PongU/background.png"));
+			JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+			frame.add(picLabel);
+			frame.pack();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		
+	}
+
+
+}

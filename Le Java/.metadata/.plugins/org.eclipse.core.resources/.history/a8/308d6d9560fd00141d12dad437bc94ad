@@ -1,0 +1,26 @@
+import java.util.List;
+import java.util.Scanner;
+
+public class Learning {
+	
+	private static List<Integer> listY;
+	private static List<Integer> listX;
+	private static List<Integer> type;
+	private static List[] graph = {listX,listY};
+	private static Scanner input = new Scanner(System.in);
+	
+	public static void main(String[] args)
+	{
+		while(true)
+		{
+			int h = (int)(Math.random()*101);
+			System.out.println("This animal has a height of " + h);
+			break;
+		}
+	}
+	
+}
+
+//Bunnies usually have a height of ~10 and a color of ~0
+//Giraffes usually have a height of ~100 and a color of ~60
+//Write program that makes a guess as to what the provided animal is (giraffe or bunny), you correct it, and it learns.

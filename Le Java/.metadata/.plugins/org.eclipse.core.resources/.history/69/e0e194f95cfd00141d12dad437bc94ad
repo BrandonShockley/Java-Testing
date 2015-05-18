@@ -1,0 +1,12 @@
+import java.util.List;
+
+public class Learning {
+	
+	public static void main(String[] args)
+	{
+		int i = 12;
+		List<Integer> l;
+		l.add(i);
+	}
+	
+}

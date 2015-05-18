@@ -1,7 +1,0 @@
-package com.bon.main;
-
-import java.awt.GridBagConstraints;
-
-public class ModdedGridBagConstraints extends GridBagConstraints {
-
-}

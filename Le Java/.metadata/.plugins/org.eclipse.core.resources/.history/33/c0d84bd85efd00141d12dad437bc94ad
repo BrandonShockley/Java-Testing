@@ -1,0 +1,13 @@
+import java.util.List;
+
+public class Learning {
+	
+	private static List<Integer> l;
+	
+	public static void main(String[] args)
+	{
+		int i = 12;
+		l.add(i);
+	}
+	
+}

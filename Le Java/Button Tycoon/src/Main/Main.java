@@ -1,16 +1,26 @@
 package Main;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.WindowListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class Main  {
 	
 	static int money = 0;
 	static Thread t;
+	static Image character = Toolkit.getDefaultToolkit().getImage("character.png");
+	static BufferedImage myPicture;
 	
 	static JFrame frame = new JFrame("Button Tycoon");
 	static JPanel main = new JPanel(new GridBagLayout());
@@ -25,7 +35,7 @@ public class Main  {
 	static UpgradeableButton five = new UpgradeableButton(50, 5);
 	static UpgradeableButton fifteen = new UpgradeableButton(150, 15);
 	
-	public static void main(String args[])
+	public static void main(String args[]) throws IOException
 	{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
@@ -43,6 +53,32 @@ public class Main  {
 		buttons.add(one);
 		buttons.add(five);
 		buttons.add(fifteen);
+		frame.getGraphics().fillRect(10, 10, 10, 10);
+		
+		frame.addKeyListener(new KeyListener(){
+
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				if (arg0.getKeyChar() == 'i')
+				{
+					money++;
+					sum.setText(Integer.toString(money));
+					frame.getGraphics().fillRect(50, 40, 50, 50);
+				}
+				
+			}
+
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}});
 		
 		stats.add(label);
 		stats.add(sum);
@@ -52,7 +88,17 @@ public class Main  {
 		main.add(stats, c);
 		c.gridx=1;
 		main.add(buttons, c);
+		/*
+			myPicture = ImageIO.read(new File("C:/Users/Brandon/Desktop/Lua Love/PongU/background.png"));
+			JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+			frame.add(picLabel);
+			frame.setComponentZOrder(picLabel, 0);
+			frame.pack();*/
+		
 		frame.add(main);
+		frame.setComponentZOrder(main, 1);
+		//frame.setComponentZOrder(picLabel, 0);
+		frame.setComponentZOrder(main, 1);
 		frame.pack();
 	}
 }

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<item value="false" key="TypeHierarchyViewPart.qualifiednames"/>
+	<item value="3" key="TypeHierarchyViewPart.orientation"/>
+	<item value="false" key="TypeHierarchyViewPart.linkeditors"/>
+	<item value="2" key="TypeHierarchyViewPart.hierarchyview"/>
 	<section name="FatJarPackageWizard">
 		<item value="C:\Users\Brandon\Desktop\Swing\Le Java" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
 		<item value="Main (1) - Button Tycoon" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
@@ -33,6 +37,8 @@
 	<section name="quick_assist_proposal_size">
 	</section>
 	<section name="completion_proposal_size">
+		<item value="248" key="size.y"/>
+		<item value="351" key="size.x"/>
 	</section>
 	<section name="JavaElementSearchActions">
 	</section>
